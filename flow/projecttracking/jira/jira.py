@@ -357,7 +357,7 @@ class Jira(Project_Tracking):
                     # verify there isn't a embedded bracket, if so just skip this one and keep marching.
                     if stories.find('[') == -1:  # there is a nested starting bracket
                         # now dig out the tracker number or jira key in single number format or multiple separated by commas.
-                        r = re.compile('(?:[a-zA-Z]+\-[0-9]+,?)+(,([a-zA-Z]+\-[0-9]+,?))*,?')
+                        r = re.compile('(?:[a-zA-Z0-9]+\-[0-9]+,?)+(,([a-zA-Z0-9]+\-[0-9]+,?))*,?'
                         stories_array = stories.split(',')
                         stories = list(filter(r.match, stories_array))
                         for story in stories:
